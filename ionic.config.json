@@ -1,0 +1,7 @@
+{
+  "name": "farmers market",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
