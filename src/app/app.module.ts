@@ -11,6 +11,7 @@ import { AuthComponent } from './modals/auth/auth.component';
 import { SubNavModalComponent } from './modals/modal-sub-nav/sub-nav-modal.component';
 import { RegistrationFormComponent } from './modals/registration-form/registration-form.component';
 import { PasswordFormComponent } from './modals/password-form/password-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PasswordFormComponent } from './modals/password-form/password-form.comp
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
   ],

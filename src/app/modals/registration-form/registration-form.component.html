@@ -19,26 +19,28 @@
         <ion-text>
           <h1>{{ titleText }}</h1>
         </ion-text>
-        <ion-item>
-          <ion-label position="floating">Email</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">First Name</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Last Name</ion-label>
-          <ion-input></ion-input>
-        </ion-item>
-        <ion-button
-          (click)="continueClicked()"
-          expand="block"
-          fill="solid"
-          shape="round"
-        >
-          Continue
-        </ion-button>
+        <form [formGroup]="registrationForm">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input formControlName="firstname"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Last Name</ion-label>
+            <ion-input formControlName="lastname"></ion-input>
+          </ion-item>
+          <ion-button
+            (click)="onSubmit()"
+            expand="block"
+            fill="solid"
+            shape="round"
+          >
+            Continue
+          </ion-button>
+        </form>
       </ion-col>
     </ion-row>
   </ion-grid>

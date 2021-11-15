@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -7,9 +8,14 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./password-form.component.scss'],
 })
 export class PasswordFormComponent implements OnInit {
+  @Input() formValues;
+  password = new FormControl('');
+  passValue;
   constructor(private modalController: ModalController) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.password.valueChanges.subscribe((pass) => (this.passValue = pass));
+  }
 
   openUserAgreement() {
     console.log('Open User Agreement');
@@ -20,7 +26,7 @@ export class PasswordFormComponent implements OnInit {
   }
 
   createAccount() {
-    console.log('create account');
+    console.log({ ...this.formValues, password: this.passValue });
   }
 
   dismiss() {
