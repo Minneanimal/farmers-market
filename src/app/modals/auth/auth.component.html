@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ headerText }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text color="dark">
+          <h1>{{ titleText }}</h1>
+        </ion-text>
+        <ion-text color="dark">
+          <p>{{ bodyText }}</p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="body-txt">
+        <ion-button
+          expand="full"
+          fill="solid"
+          shape="round"
+          (click)="goToEmailAuth()"
+          >{{ emailBtnText }}</ion-button
+        >
+        <ion-text color="dark">
+          <p>or</p>
+        </ion-text>
+        <ion-button expand="full" fill="solid" shape="round">
+          <ion-icon slot="start" name="logo-apple"></ion-icon>
+          {{ appleBtnText }}
+        </ion-button>
+        <ion-button expand="full" fill="outline" shape="round">
+          <ion-icon slot="start" name="logo-facebook"></ion-icon>
+          {{ facebookBtnText }}
+        </ion-button>
+        <ion-button expand="full" fill="outline" shape="round">
+          <ion-icon slot="start" name="logo-google"></ion-icon>
+          {{ googleBtnText }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
