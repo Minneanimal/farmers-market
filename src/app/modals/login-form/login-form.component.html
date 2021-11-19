@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Sign In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <ion-text>
+          <h1>{{ titleText }}</h1>
+        </ion-text>
+        <form [formGroup]="loginForm">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input formControlName="email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input formControlName="password"></ion-input>
+          </ion-item>
+          <ion-button
+            (click)="onSubmit()"
+            expand="block"
+            fill="solid"
+            shape="round"
+          >
+            Sign In
+          </ion-button>
+        </form>
+        <ion-button
+          (click)="goToTemporaryPassword()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Text a temporary password
+        </ion-button>
+        <ion-button
+          (click)="goToPasswordReset()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Reset your password
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button
+          (click)="goToCreateAccount()"
+          expand="block"
+          fill="clear"
+          shape="round"
+        >
+          Create an account
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

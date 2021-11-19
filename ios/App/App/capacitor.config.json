@@ -2,5 +2,8 @@
 	"appId": "io.ionic.starter",
 	"appName": "farmers market",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"server": {
+		"url": "http://192.168.1.28:8100"
+	}
 }

@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { AuthService, CreateUserDto } from 'src/app/services/auth.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-password-form',
@@ -11,7 +13,10 @@ export class PasswordFormComponent implements OnInit {
   @Input() formValues;
   password = new FormControl('');
   passValue;
-  constructor(private modalController: ModalController) {}
+  constructor(
+    private modalController: ModalController,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.password.valueChanges.subscribe((pass) => (this.passValue = pass));
@@ -26,7 +31,14 @@ export class PasswordFormComponent implements OnInit {
   }
 
   createAccount() {
-    console.log({ ...this.formValues, password: this.passValue });
+    const newUser: CreateUserDto = {
+      ...this.formValues,
+      password: this.passValue,
+    };
+    this.authService
+      .register(newUser)
+      .pipe(take(1))
+      .subscribe((data) => console.log(data));
   }
 
   dismiss() {

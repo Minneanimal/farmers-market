@@ -1,0 +1,19 @@
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 33vh;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/assets/images/selling.jpg");
+  background-size: cover;
+}
+
+.hero-text {
+  margin: auto;
+  text-align: center;
+}
+
+ion-button {
+  --padding-bottom: 0;
+}

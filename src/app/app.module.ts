@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -12,6 +12,8 @@ import { SubNavModalComponent } from './modals/modal-sub-nav/sub-nav-modal.compo
 import { RegistrationFormComponent } from './modals/registration-form/registration-form.component';
 import { PasswordFormComponent } from './modals/password-form/password-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginFormComponent } from './modals/login-form/login-form.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AuthComponent,
     SubNavModalComponent,
     RegistrationFormComponent,
+    LoginFormComponent,
     PasswordFormComponent,
   ],
   entryComponents: [],
@@ -29,7 +32,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     IonicModule.forRoot(),
     AppRoutingModule,
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
