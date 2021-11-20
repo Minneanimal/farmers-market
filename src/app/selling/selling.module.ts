@@ -8,13 +8,16 @@ import { SellingPageRoutingModule } from './selling-routing.module';
 
 import { SellingPage } from './selling.page';
 
+import { SwiperModule } from 'swiper/angular';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SellingPageRoutingModule
+    SellingPageRoutingModule,
+    SwiperModule,
   ],
-  declarations: [SellingPage]
+  declarations: [SellingPage],
 })
 export class SellingPageModule {}

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create A Kitchen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h1>Shop Preferences</h1>
+        <p>Let's get started! Tell us about you and your shop.</p>
+        <ion-card>
+          <ion-list>
+            <ion-item>
+              <ion-label>Shop Language</ion-label>
+              <ion-select placeholder="Select One">
+                <ion-select-option value="f">English</ion-select-option>
+                <ion-select-option value="f">Spanish</ion-select-option>
+                <ion-select-option value="f">Mandarin</ion-select-option>
+                <ion-select-option value="f">French</ion-select-option>
+                <ion-select-option value="f">Italian</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-radio-group value="biff">
+              <ion-list-header>
+                <ion-label
+                  ><p>Which of these best describes you? *</p></ion-label
+                >
+              </ion-list-header>
+
+              <ion-item>
+                <ion-label>
+                  <p>Selling is my full time job</p>
+                </ion-label>
+                <ion-radio slot="start" value="biff"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <p>I sell part-time but hope to sell full-time</p>
+                </ion-label>
+                <ion-radio slot="start" value="griff"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>
+                  <p>I sell part-time and that's how I like it</p>
+                </ion-label>
+                <ion-radio slot="start" value="buford"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label><p>Other</p></ion-label>
+                <ion-radio slot="start" value="other"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
