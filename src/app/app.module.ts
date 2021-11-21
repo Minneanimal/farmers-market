@@ -15,12 +15,14 @@ import { PasswordFormComponent } from './modals/password-form/password-form.comp
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './modals/login-form/login-form.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AddProductComponent } from './modals/add-product/add-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     CreateKitchenComponent,
+    AddProductComponent,
     SubNavModalComponent,
     RegistrationFormComponent,
     LoginFormComponent,
