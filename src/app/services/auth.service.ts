@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { format, parseJSON, isFuture } from 'date-fns';
+import { parseJSON, isFuture } from 'date-fns';
+import { map } from 'rxjs/operators';
+import { LoginUserDto } from '../shared/dtos/login-user.dto';
 
 export class CreateUserDto {
   email: string;
@@ -39,19 +41,39 @@ export class AuthService {
 
   login(loginData: LoginDto): Observable<User> {
     const url = `${this.apiBase}/log-in`;
-    return this.http.post<User>(url, loginData);
+    return this.http.post<LoginUserDto>(url, loginData).pipe(
+      map((authData) => {
+        this.setSession(authData.access_token, authData.expiresIn);
+        return authData.user;
+      })
+    );
   }
 
-  public isLoggedIn() {
+  private setSession(token, expiration) {
+    const expiresIn = parseJSON(expiration);
+    localStorage.setItem('id_token', token);
+    localStorage.setItem('expiresIn', JSON.stringify(expiresIn.valueOf()));
+  }
+
+  public isLoggedOut() {
     return isFuture(this.getExpiration());
   }
 
-  isLoggedOut() {
-    return !this.isLoggedIn();
+  isLoggedIn() {
+    return !this.isLoggedOut();
   }
 
   getExpiration() {
-    const expiration = localStorage.getItem('expires_at');
+    const expiration = localStorage.getItem('expiresIn');
     return parseJSON(expiration);
+  }
+
+  logout() {
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expiresIn');
+  }
+
+  getToken() {
+    return localStorage.getItem('id_token');
   }
 }

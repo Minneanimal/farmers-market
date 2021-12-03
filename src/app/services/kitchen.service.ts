@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CreateKitchenDto } from '../shared/dtos/create-kitchen.dto';
 import { KitchenDto } from '../shared/dtos/kitchen.dto';
-import { CreateUserDto } from './auth.service';
 
 @Injectable({
   providedIn: 'root',

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { ModalController, IonNav, NavParams, Platform } from '@ionic/angular';
 import { take } from 'rxjs/operators';
 import { KitchenService } from 'src/app/services/kitchen.service';
 import { CreateKitchenDto } from 'src/app/shared/dtos/create-kitchen.dto';
-import { AddProductComponent } from '../add-product/add-product.component';
 
 @Component({
   selector: 'app-create-kitchen',
@@ -13,11 +12,7 @@ import { AddProductComponent } from '../add-product/add-product.component';
 })
 export class CreateKitchenComponent implements OnInit {
   headerText = 'Create A Kitchen';
-  kitchNameFormControl = new FormControl([
-    '',
-    Validators.required,
-    Validators.maxLength(50),
-  ]);
+  kitchNameFormControl = new FormControl('');
 
   kitchenName: string;
 

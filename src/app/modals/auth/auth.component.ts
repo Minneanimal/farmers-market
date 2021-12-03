@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IonNav, ModalController, NavParams, Platform } from '@ionic/angular';
 import { SignInOrRegister } from 'src/app/shared/enums/signin-or-register.enum';
+import { LoginFormComponent } from '../login-form/login-form.component';
 import { RegistrationFormComponent } from '../registration-form/registration-form.component';
 
 @Component({
@@ -62,6 +63,8 @@ export class AuthComponent implements OnInit {
   goToEmailAuth() {
     if (this.signInOrRegister === SignInOrRegister.Register) {
       this.ionNav.push(RegistrationFormComponent);
+    } else {
+      this.ionNav.push(LoginFormComponent);
     }
   }
 

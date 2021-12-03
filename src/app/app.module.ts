@@ -14,7 +14,7 @@ import { RegistrationFormComponent } from './modals/registration-form/registrati
 import { PasswordFormComponent } from './modals/password-form/password-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './modals/login-form/login-form.component';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { AddProductComponent } from './modals/add-product/add-product.component';
 
 @NgModule({
@@ -38,7 +38,7 @@ import { AddProductComponent } from './modals/add-product/add-product.component'
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
