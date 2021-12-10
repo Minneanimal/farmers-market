@@ -1,0 +1,11 @@
+.main-card {
+  display: flex;
+  flex-wrap: wrap;
+  ion-col {
+    display: flex;
+    justify-content: center;
+  }
+  ion-card {
+    width: 100%;
+  }
+}

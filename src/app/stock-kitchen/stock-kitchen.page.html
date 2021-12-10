@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Stock your shop</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p>
+    Add as many goods as you can. 5 or more would be a great start More listings
+    means more chances to be discovered!
+  </p>
+  <ion-grid class="ion-no-padding">
+    <div class="main-card">
+      <ion-row>
+        <ion-col>
+          <ion-card button="true" (click)="goToAddNewItem()">
+            <ion-card-content>
+              <ion-row class="ion-justify-content-center">
+                <ion-icon size="large" name="add"></ion-icon>
+                <p>Add an item</p>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card button="true" (click)="goToItem(4)">
+            <ion-card-header> </ion-card-header>
+            <ion-card-content> Item Name </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-button
+    class="kitchen-btn"
+    strong="true"
+    (click)="save()"
+    expand="block"
+    fill="solid"
+    shape="round"
+  >
+    Save and Continue
+  </ion-button>
+</ion-footer>
