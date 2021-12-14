@@ -1,0 +1,17 @@
+.footer-btn-container {
+  display: flex;
+  padding: 0.5rem;
+}
+
+.footer-save-btn {
+  flex-grow: 2;
+}
+
+.footer-cancel-btn {
+  flex-grow: 1;
+}
+
+.section-container {
+  border-radius: 5px;
+  border: 1px solid gray;
+}

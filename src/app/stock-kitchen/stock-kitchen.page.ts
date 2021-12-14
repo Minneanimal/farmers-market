@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stock-kitchen',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stock-kitchen.page.scss'],
 })
 export class StockKitchenPage implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
@@ -16,7 +17,10 @@ export class StockKitchenPage implements OnInit {
 
   onClick() {}
 
-  goToAddNewItem() {}
+  goToAddNewItem() {
+    this.router.navigate(['seller-item-details']);
+  }
+
   goToItem(itemId: number) {
     console.log(itemId);
   }

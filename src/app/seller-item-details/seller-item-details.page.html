@@ -1,9 +1,193 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>seller-item-details</ion-title>
+    <ion-title>Add new product</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h2>Add a new listing</h2>
+        <p>
+          This listing isn't active yet. It will be available to shoppers once
+          you open your shop
+        </p>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Photos</ion-card-title>
+            <ion-card-subtitle
+              >Add as many as you can so buyers can see every
+              detail.</ion-card-subtitle
+            >
+          </ion-card-header>
+          <ion-card-content> Awesome content </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Video</ion-card-title>
+            <ion-card-subtitle>
+              Bring your product to life with a 5 to 15 second video. The video
+              won't feature sound, so let the product do the
+              talking!</ion-card-subtitle
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <p>
+              <a href="#" target="_blank" rel="noopener noreferrer"
+                >Learn how to make videos that sell</a
+              >
+            </p>
+            <div class="add-video">Add a video</div>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Product Details</ion-card-title>
+            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>Title *</ion-label>
+              <ion-input placeholder="Title" type="text"></ion-input>
+            </ion-item>
+            <ion-list>
+              <ion-radio-group name="renewal-option" value="manual">
+                <ion-list-header>
+                  <ion-label>Renewal Options *</ion-label>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label>Automatic</ion-label>
+                  <ion-radio value="automatic"></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Manual</ion-label>
+                  <ion-radio value="manual"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </ion-list>
+            <ion-item>
+              <ion-label position="floating">Description *</ion-label>
+              <ion-textarea></ion-textarea>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Inventory and Pricing</ion-card-title>
+            <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>Price *</ion-label>
+              <ion-input placeholder="0" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Quantity *</ion-label>
+              <ion-input placeholder="1" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>SKU</ion-label>
+              <ion-input placeholder="optional" type="text"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
 
+        <!--   <div class="variations">
+    <p>Add available options like gluten-free or vegan. Buyers will choose from these during checkout</p>
+
+  </div> -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Pickup and Delivery</ion-card-title>
+            <ion-card-subtitle>
+              Set clear and realistic shipping expectations for shoppers by
+              providing accurate proccessing time.</ion-card-subtitle
+            >
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>Processing Time *</ion-label>
+              <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+                <ion-select-option value="brown"
+                  >1 business day</ion-select-option
+                >
+                <ion-select-option value="blonde"
+                  >1-2 business days</ion-select-option
+                >
+                <ion-select-option value="black"
+                  >1-3 business days</ion-select-option
+                >
+                <ion-select-option value="red"
+                  >3-5 business days</ion-select-option
+                >
+                <ion-select-option value="red"
+                  >5-7 business days</ion-select-option
+                >
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Address *</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Address 2</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>City</ion-label>
+              <ion-input></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>State</ion-label>
+              <ion-select value="mn" okText="Okay" cancelText="Dismiss">
+                <ion-select-option value="brown">MN</ion-select-option>
+                <ion-select-option value="blonde"
+                  >Other States</ion-select-option
+                >
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label>Zip</ion-label>
+              <ion-input type="number" placeholder="zipcode"></ion-input>
+            </ion-item>
+            <ion-button
+              (click)="savePickupDeliveryProfile()"
+              expand="block"
+              fill="clear"
+              shape="round"
+            >
+              Save as a pickup profile
+            </ion-button></ion-card-content
+          >
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <div class="footer-btn-container">
+    <ion-button
+      class="footer-cancel-btn"
+      strong="true"
+      (click)="cancelAndGoBack()"
+      expand="block"
+      fill="solid"
+      shape="round"
+    >
+      Cancel
+    </ion-button>
+    <ion-button
+      disabled="true"
+      class="footer-save-btn"
+      strong="true"
+      (click)="saveProduct()"
+      expand="block"
+      fill="solid"
+      shape="round"
+    >
+      Save And Continue
+    </ion-button>
+  </div>
+</ion-footer>
